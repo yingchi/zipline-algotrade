@@ -1,11 +1,14 @@
 from zipline.api import (
-history,
-order_target,
-record,
-symbol,
+    history,
+    order_target,
+    record,
+    symbol,
 )
 
+
+# context: a python dict, a place to save global variables
 def initialize(context):
+    # they are actually methods and not functions
     context.i = 0
 
 def handle_data(context, data):
@@ -26,4 +29,3 @@ def handle_data(context, data):
     record(AAPL=data[sym].price,
            short_mvag=short_mvag[sym],
            long_mvad=long_mvad[sym])
-
